@@ -1,0 +1,2 @@
+include ':app', ':JiaGu360'
+rootProject.name='MyJiaGuPlugin'

@@ -1,0 +1,44 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+ apply  plugin: 'guosen-jiagu'
+
+buildscript {
+    repositories {
+        google()
+        jcenter()
+        maven {
+            //cooker-plugin 所在的仓库
+            //这里是发布在本地文件夹了
+             url uri('./localMaven')
+
+            //url "https://dl.bintray.com/intotcy/maven"
+        }
+        
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.5.0'
+        classpath 'com.guosen.jiagu:JiaGu360:1.0.18'
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
+
+        //加上这两行
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
+    }
+}
+appInfo{
+    userName = "18060031709"
+    userPwd  = "lgs6171612918"
+    keyStorePass = "zymobile"
+    keyStoreKeyAliasPwd = "zymobile"
+    keyStoreKeyAlias = "mh"
+    keyStorePath = "./app/Keystore_MH.keystore"
+    outputPath = "./jiaguApks"
+    oldApkPath = "./app/build/outputs/apk/release"
+}
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        
+    }
+}
