@@ -26,9 +26,9 @@ buildscript {
     }
 }
 appInfo{
-    userName = "18060031709"
-    userPwd  = "lgs6171612918"
-    keyStorePass = "zymobile"
+    userName = "*****"
+    userPwd  = "*****"
+    keyStorePass = "****"
     keyStoreKeyAliasPwd = "zymobile"
     keyStoreKeyAlias = "mh"
     keyStorePath = "./app/Keystore_MH.keystore"
