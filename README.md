@@ -12,8 +12,11 @@ JiaGuInfo{
     keyStorePass = "****"
     keyStoreKeyAliasPwd = "****"
     keyStoreKeyAlias = "mh"
-    keyStorePath = "./app/Keystore_MH.keystore"
+    keyStorePath = "./Keystore_MH.keystore"
     outputPath = "./jiaguApks"//加固后输出文件夹
-    oldApkPath = "./app/build/outputs/apk/release"//需要加固的文件
+    oldApkPath = "./build/outputs/apk/release"//需要加固的文件
 }
 ```
+# 打加固包
+在AndroidStudio 右侧gradle 找到guosen/下面的assembleXXXPackage Task
+运行Task 将会在 之前配置的目录下面生成对应的加固保
