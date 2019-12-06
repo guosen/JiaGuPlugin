@@ -8,5 +8,6 @@ class JiaGuAppInfoExtension{
     String oldApkPath//旧的apk输入路径
     String userName //360账号
     String userPwd //360密码
+    String apkNewName //自定义配置apk的名称
 
 }

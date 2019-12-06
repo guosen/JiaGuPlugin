@@ -2,6 +2,7 @@ package com.guosen.jiagu
 
 import com.android.build.gradle.api.ApplicationVariant
 import org.gradle.api.DefaultTask
+import org.gradle.api.Project
 import org.gradle.api.tasks.Input
 import org.gradle.api.tasks.TaskAction
 
@@ -10,6 +11,9 @@ class JiaGuAppTask extends DefaultTask {
 
     @Input
     ApplicationVariant variant;
+
+    @Input
+    Project targetProject
     JiaGuAppTask(){
         group = "guosen"
        // dependsOn 'app:build'
@@ -26,7 +30,10 @@ class JiaGuAppTask extends DefaultTask {
         def keyStoreKeyAlias = project.extensions.JiaGuInfo.keyStoreKeyAlias
         def keyStoreKeyAliasPass = project.extensions.JiaGuInfo.keyStoreKeyAliasPwd
         def apkOutputDir = project.extensions.JiaGuInfo.outputPath
-        def apkOldDir = project.extensions.JiaGuInfo.oldApkPath
+
+
+
+
 
         def userName = project.extensions.JiaGuInfo.userName
         def userPwd = project.extensions.JiaGuInfo.userPwd
@@ -37,7 +44,6 @@ class JiaGuAppTask extends DefaultTask {
             outputs->
                 def outFile = outputs.outputFile
                 if (outFile != null && outFile.name.endsWith('.apk')){
-                    def fileName = outFile.name.replace("app","appHealth")
                     //360加固-登录
                     execCmd("java -jar ${qihuPath} -login ${userName} ${userPwd}")
                     //360加固-签名信息配置
@@ -46,7 +52,7 @@ class JiaGuAppTask extends DefaultTask {
                     // execCmd("java -jar ${qihuPath} -importmulpkg ${project.extensions.publishAppInfo.channelPath}")
                     //360加固-开始加固
                     execCmd("java -jar ${qihuPath} -jiagu ${outFile} ${apkOutputDir} -autosign  -automulpkg")
-                    print("加固完成-------------------------${project.buildDir}")
+                    print("加固完成-------------------------${outFile}")
                 }
         }
     }

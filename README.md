@@ -15,8 +15,11 @@ JiaGuInfo{
     keyStorePath = "./Keystore_MH.keystore"
     outputPath = "./jiaguApks"//加固后输出文件夹
     oldApkPath = "./build/outputs/apk/release"//需要加固的文件
+    apkNewName = "app_lin_.apk"
 }
 ```
 # 打加固包
-在AndroidStudio 右侧gradle 找到guosen/下面的assembleXXXPackage Task
-运行Task 将会在 之前配置的目录下面生成对应的加固保
+在AndroidStudio 右侧gradle 找到guosen/下面的assembleXXXPackage
+Task运行Task 将会在 之前配置的目录下面生成对应的加固保
+# 自定义包的名称
+可以通过配置apkNewName来设置自己想要的apk名称（前缀）
