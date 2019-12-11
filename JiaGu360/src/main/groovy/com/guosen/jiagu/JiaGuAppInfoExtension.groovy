@@ -9,5 +9,6 @@ class JiaGuAppInfoExtension{
     String userName //360账号
     String userPwd //360密码
     String apkNewName //自定义配置apk的名称
+    String jiaguToolPath //加固工具存放的路径
 
 }

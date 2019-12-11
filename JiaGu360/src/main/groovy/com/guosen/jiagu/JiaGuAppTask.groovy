@@ -21,19 +21,19 @@ class JiaGuAppTask extends DefaultTask {
     @TaskAction
     doAction(){
         //打包完成
-        print('加固开始-------------------------')
+        print  '加固开始-------------------------'
         //获取参数
         //Dir 目录依赖于apply plugin: 'guosen-jiagu' 这句话应用在哪里，一般是app build
-        def qihuPath ="${project.getRootDir()}/JiaGu360/jiagu/jiagu.jar"
+        //def qihuPath ="${project.getRootDir()}/JiaGu360/jiagu/jiagu.jar"
         def keyStorePath = project.extensions.JiaGuInfo.keyStorePath
         def keyStorePass = project.extensions.JiaGuInfo.keyStorePass
         def keyStoreKeyAlias = project.extensions.JiaGuInfo.keyStoreKeyAlias
         def keyStoreKeyAliasPass = project.extensions.JiaGuInfo.keyStoreKeyAliasPwd
         def apkOutputDir = project.extensions.JiaGuInfo.outputPath
+        def jiaguTool   = project.extensions.JiaGuInfo.jiaguToolPath
 
-
-
-
+       // def qihuPath2 = "./JiaGu360/jiagu"
+        print  "获取路径=======》》》》${jiaguTool}"
 
         def userName = project.extensions.JiaGuInfo.userName
         def userPwd = project.extensions.JiaGuInfo.userPwd
@@ -45,14 +45,14 @@ class JiaGuAppTask extends DefaultTask {
                 def outFile = outputs.outputFile
                 if (outFile != null && outFile.name.endsWith('.apk')){
                     //360加固-登录
-                    execCmd("java -jar ${qihuPath} -login ${userName} ${userPwd}")
+                    execCmd("java -jar ${jiaguTool} -login ${userName} ${userPwd}")
                     //360加固-签名信息配置
-                    execCmd("java -jar ${qihuPath}  -importsign ${keyStorePath} ${keyStorePass} ${keyStoreKeyAlias} ${keyStoreKeyAliasPass}")
+                    execCmd("java -jar ${jiaguTool}  -importsign ${keyStorePath} ${keyStorePass} ${keyStoreKeyAlias} ${keyStoreKeyAliasPass}")
                     //360加固-渠道信息配置
                     // execCmd("java -jar ${qihuPath} -importmulpkg ${project.extensions.publishAppInfo.channelPath}")
                     //360加固-开始加固
-                    execCmd("java -jar ${qihuPath} -jiagu ${outFile} ${apkOutputDir} -autosign  -automulpkg")
-                    print("加固完成-------------------------${outFile}")
+                    execCmd("java -jar ${jiaguTool} -jiagu ${outFile} ${apkOutputDir} -autosign  -automulpkg")
+                    print "加固完成-------------------------${outFile}"
                 }
         }
     }

@@ -30,7 +30,10 @@ class JiaGuAppPlugin implements Plugin<Project> {
                 if (apkNewName == null || "".equals(apkNewName)){
                     apkNewName = "app"
                 }
-                outputFileName = apkNewName
+
+
+
+                outputFileName = "${apkNewName}-${variantName}"
                 println "appName>>>$it.outputFileName"
             }
         }
