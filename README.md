@@ -3,10 +3,10 @@
 
 # 使用方式
 
-##apply  plugin: 'guosen-jiagu'
-##classpath 'com.guosen.jiagu:JiaGu360:1.0.21'
+## apply  plugin: 'guosen-jiagu'
+## classpath 'com.guosen.jiagu:JiaGu360:1.0.21'
 
-#最新正式版本
+# 最新正式版本
 version = "1.0.47"
 
 # 配置相关信息
