@@ -16,6 +16,7 @@ JiaGuInfo{
     outputPath = "./jiaguApks"//加固后输出文件夹
     oldApkPath = "./build/outputs/apk/release"//需要加固的文件
     apkNewName = "app_lin_.apk"
+    jiaguToolPath = "../jiagutool/jiagu.jar"//存放加固文件的路径（可以从360加固官方下载）
 }
 ```
 # 打加固包
